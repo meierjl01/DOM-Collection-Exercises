@@ -18,13 +18,16 @@ console.log(marketsByDistance);
 
 marketsByDistance.forEach(function(market, i){
  var li = $('<li>' + marketsByDistance[i] + '</li>');
- $('body').append(li);
+ $('.market').append(li);
 });
 
-var catGifs = cats.filter(function(cat, i, arr) {
-  if (cat.type === 'gif') {
-    return true;
-  }
-}).map(function(cat, i, arr) {
 
+
+var catgif = cats.data.map(function(cat, i){
+ return cats.data[i].images.fixed_height.url;
+});
+
+cats.data.forEach(function(cat, i){
+ var img=$('<img src='+ catgif[i] +'>');
+ $('.cats').append(img);
 });
